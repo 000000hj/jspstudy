@@ -10,6 +10,7 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  
   <!-- 서블릿의 URLMapping 바꾸기 -->
   <servlet>
     <servlet-name>channel</servlet-name>
@@ -19,6 +20,6 @@
     <servlet-name>channel</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-  
-  
+
+
 </web-app>
