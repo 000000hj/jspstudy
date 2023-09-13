@@ -1,4 +1,4 @@
-package ex05_redirect;
+package ex07_binding;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Redirect2
+ * Servlet implementation class Binding2
  */
-@WebServlet("/redirect2")
-public class Redirect2 extends HttpServlet {
+@WebServlet("/binding2")
+public class Binding2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Redirect2() {
+    public Binding2() {
         super();
     }
 
@@ -25,17 +25,23 @@ public class Redirect2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 
-	
-	//1. 요청 인코딩
-		request.setCharacterEncoding("UTF-8");
-	
-	//2. 요청 파라미터
-		String name=request.getParameter("name");
+	// ServletContext 영역의 msg 확인하기
+		String msg1= (String)request.getServletContext().getAttribute("msg");
+		System.out.println(msg1);
+		
+		//HttpSession 영역의 msg 확인하기
+		String msg2=(String)request.getSession().getAttribute("msg");
+		System.out.println(msg2);
 		
 		
-		System.out.println("redirect :"+ name);
+		//HttpServletRequest 영역의 msg 확인하기
+		String msg3= (String)request.getAttribute("msg");
+		System.out.println(msg3);
+		
+		//binding2 -> binding3 로 forward
+		// Binding3 서블릿으로 이동(HttpServletRequest의 전달이 가능한 forward를 이용)
+		request.getRequestDispatcher("/binding3").forward(request, response);
 	}
 
 	/**

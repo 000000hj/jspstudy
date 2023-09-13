@@ -16,51 +16,20 @@
   <div id="mainWrap">
     
     <input type="button" value="새로고침" id="btn_reset">
-    <form action="/servlet/servletex2" method="post">
     <span class="calc"></span>
-    <input name="answer" id="answer" type="text" size="4">
-    <input id="btn_calc" type="submit" value="계산"></input>
-  </form>
+    <input name="answer" id="answer" type="text" size="4" autocomplete="off">
+    <input id="btn_calc" type="button" value="계산"></input>
   </div>
   
   <script>
-   
-       //시작하자마자 실행될것
-       var num1;
-       var num2;
-       window.onload=print();
     
     
-    //랜덤 값을 가져오는 함수
-    function getRandomInt(min,max){
-      min=Math.ceil(min);
-      max=Math.floor(max);
-      return Math.floor(Math.random()*(max-min+1))+min; // 최대값, 최솟값 포함
-    }
-    
-    //랜덤값을 화면에 출력하는 함수
-    function print(){
-    num1=getRandomInt(1,9);
-    num2=getRandomInt(1,9);
-      $('.calc').append().text(num1+" x "+num2+" = ");
-    };
-    
-   // 새로고침 버튼 작동(랜덤 값을 가져와 출력한다.)
-    
-    $('#btn_reset').on('click',function(){
-      print();
-    });
-    
-    // 계산 버튼 
-    $('#btn_calc').on('submit',function(){
-      var correct=num1*num2;
-      
-    })
 
     
-    
-    
-    
   </script>
+  
+  
+  
+
 </body>
 </html>

@@ -1,6 +1,8 @@
 package ex05_redirect;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +35,14 @@ public class Redirect1 extends HttpServlet {
 		 * 3. 경로를 작성할 때  ContextPath와 URLMapping을 모두 작성한다.
 		 */
 		
+		
+		//요청 파라미터
+		String name= request.getParameter("name");
+		
 		//redirect할 경로를 응답
-		response.sendRedirect("/servlet/redirect2");
+		//보낼 때 인코딩을 해야하며 리다이렉트시 url 에 있는 파라미터를 인코딩 할때는 URLEncoder.encode(name,"UTF-8") 사용
+		response.sendRedirect("/servlet/redirect2?name="+URLEncoder.encode(name,"UTF-8"));
+		
 	
 	}
 
