@@ -40,7 +40,7 @@ public class Binding1 extends HttpServlet {
 		 * 	2) HttpSession    		: 세션 종료 전까지 값을 저장할 수 있다. 웹 브라우저가 실행중이라면 어디서든 값에 접근할 수 있다.(시간 지정 가능)
 		 *  3) HttpServletRequest	: 요청 종료 전까지 값을 저장할 수 있다. 응답 전이라면 값에 접근할 수 있다.(1회용)  
 		 * 5.속성(Attribute) 처리 메소드
-		 * 		1) setAttribute("속성","값)	:Object 타입으로 값을 저장한다.
+		 * 		1) setAttribute("속성","값")	:Object 타입으로 값을 저장한다.
 		 * 		2) getAttribute("속성")			:Object 타입의 값을 반환한다. 캐스팅이 필요할 수 있다.
 		 * 		3) removeAttribute("속성")	: 값을 제거한다.
 		 * */
