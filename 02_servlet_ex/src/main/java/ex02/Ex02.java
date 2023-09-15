@@ -1,4 +1,4 @@
-package EX01_Servlet;
+package ex02;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,14 +15,14 @@ import org.json.XML;
 /**
  * Servlet implementation class ServletEx2
  */
-@WebServlet("/servletex2")
-public class ServletEx2 extends HttpServlet {
+@WebServlet("/ex02")
+public class Ex02 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletEx2() {
+    public Ex02() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +34,7 @@ public class ServletEx2 extends HttpServlet {
 		// 요청 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
-		//요청 파라미터를 
+		//요청 파라미터
 		String strAnswer=request.getParameter("answer");
 		String strNum1=request.getParameter("num1");
 		String strNum2=request.getParameter("num2");
