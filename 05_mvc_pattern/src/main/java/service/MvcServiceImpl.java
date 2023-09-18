@@ -10,13 +10,13 @@ public class MvcServiceImpl implements MvcService {
 	@Override
 	public String getDate(HttpServletRequest request) {
 		request.setAttribute("today", LocalDate.now().toString());
-		return "views/result.jsp";		
+		return "views/date.jsp";		
 	}
 
 	@Override
 	public String getTime(HttpServletRequest request) {
 		request.setAttribute("now",LocalTime.now().toString());
-		return "views/result.jsp";
+		return "views/time.jsp";
 	}
 	
 
