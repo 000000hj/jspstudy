@@ -31,10 +31,10 @@ public class BoardController extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    // Filter 실행 후 Controller 실행
+    // BoardFilter 실행 후 Controller 실행
     
-    // 요청 인코딩 + 응답 타입과 인코딩
-    request.setCharacterEncoding("UTF-8");
+    // 요청 인코딩(BoardFilter가 수행함) + 응답 타입과 인코딩
+    // request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
     
     // 요청 주소 확인
@@ -51,30 +51,31 @@ public class BoardController extends HttpServlet {
     // 요청에 따른 처리
     switch(urlMapping) {
     // 단순 이동 (forward 처리)
-    case "/board/write.do":
+    case "/board/writeArticle.do":
       af = new ActionForward("/board/write.jsp", false);
+      break;
     case "/index.do":
-    	af=new ActionForward("/index.jsp",false);
+      af = new ActionForward("/index.jsp", false);
       break;
     // 서비스 처리
-    case "/board/register.do":
+    case "/board/addArticle.do":
       af = boardService.register(request);
       break;
-    case "/board/list.do":
-    	af=boardService.getBoardList(request);
-    	break;
-    case"/board/detail.do":
-    	af=boardService.getBoardByNo(request);
-    	break;
-    case"/board/edit.do":
-    	af=boardService.edit(request);
-    	break;
-    case"/board/modify.do":
-    	af=boardService.modify(request);
-    	break;
-    case"/board/delete.do":
-    	af=boardService.delete(request);
-    	break;
+    case "/board/getArticleList.do":
+      af = boardService.getBoardList(request);
+      break;
+    case "/board/getArticleDetail.do":
+      af = boardService.getBoardByNo(request);
+      break;
+    case "/board/editArticle.do":
+      af = boardService.edit(request);
+      break;
+    case "/board/modifyArticle.do":
+      af = boardService.modify(request);
+      break;
+    case "/board/deleteArticle.do":
+      af = boardService.delete(request);
+      break;
     }
     
     // 이동
