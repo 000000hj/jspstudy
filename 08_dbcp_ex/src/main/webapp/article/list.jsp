@@ -31,6 +31,25 @@
       $('#chk_all').prop('checked', total === $('.chk_each').length);
     })
   }
+  
+  function fnArticleDelete() {
+  	
+  	if(!confirm('선택한 기사들을 삭제할까요?')){
+  		return;
+  	}
+    let array=[];
+  	
+  	//$.each(배열,function(인덱스,요소){})
+		$.each($('.chk_each'),function(i,elem){
+		  if($(elem).is(':checked'))
+		  	{
+		    	array.push($(elem).val());	  	
+		  	}
+		})
+		
+	location.href='${contextPath}/deleteArticle.do?articles='+array.join(',');
+		
+	}
 
 </script>
 </head>
@@ -38,6 +57,7 @@
 
   <div>
     <a href="${contextPath}/writeArticle.do">기사작성하러가기</a>
+    <a href="javascript:fnArticleDelete()">선택기사삭제하기</a>
   </div>
 
   <hr>

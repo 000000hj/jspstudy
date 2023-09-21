@@ -229,4 +229,28 @@ public class ArticleDao {
   	return plusHit;
   }
   
+  public int articleDelete(String articles)
+  {
+  	//삭제 결과
+  	int deleteResult=0;
+  	
+  	
+  	try {
+			con=dataSource.getConnection();
+			String sql="DELETE FROM ARTICLE_T WHERE ARTICLE_NO IN(?)";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, articles);
+			deleteResult=ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+  	
+  	//결과 반환
+  	return deleteResult;
+  	
+  }
+  
 }
