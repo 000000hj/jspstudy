@@ -237,9 +237,8 @@ public class ArticleDao {
   	
   	try {
 			con=dataSource.getConnection();
-			String sql="DELETE FROM ARTICLE_T WHERE ARTICLE_NO IN(?)";
+			String sql="DELETE FROM ARTICLE_T WHERE ARTICLE_NO IN("+articles+")";
 			ps=con.prepareStatement(sql);
-			ps.setString(1, articles);
 			deleteResult=ps.executeUpdate();
 			
 		} catch (Exception e) {
