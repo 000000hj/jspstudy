@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
- <c:set var="contextPath" value="<%=request.getContextPath()%>"/>
- 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +9,11 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
-</head>
 <body>
 
-<div>
-  <a href="${contextPath}/board/getArticleList.do">게시글목록</a>
-</div>
+  <div>
+    <a href="${contextPath}/book/list.do">도서목록</a>
+  </div>
 
 </body>
 </html>

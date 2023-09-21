@@ -126,7 +126,7 @@ public class BoardDao {
       
       con = dataSource.getConnection();
       String sql = "SELECT A.BOARD_NO, A.TITLE, A.CONTENT, A.MODIFIED_AT, A.CREATED_AT"
-                 + "  FROM (SELECT ROW_NUMBER() OVER (ORDER BY BOARD_NO DESC) AS RN, BOARD_NO, TITLE, CONTENT, MODIFIED_AT, CREATED_AT"
+                 + "  FROM (SELECT ROW_NUMBER() OVER (ORDER BY BOARD_NO DESC) AS RN, BOARD_NO, TITLE, CONTENT, EDITOR , MODIFIED_AT, CREATED_AT"
                  + "          FROM BOARD_T) A"
                  + " WHERE A.RN BETWEEN ? AND ?";
       ps = con.prepareStatement(sql);
@@ -139,8 +139,9 @@ public class BoardDao {
                         .board_no(rs.getInt(1))
                         .title(rs.getString(2))
                         .content(rs.getString(3))
-                        .modified_at(rs.getDate(4))
-                        .created_at(rs.getDate(5))
+                        .editor(rs.getString(4))
+                        .lastModified(rs.getDate(5))
+                        .created(rs.getDate(6))
                         .build();
         // BoardDto -> list 추가
         list.add(dto);

@@ -34,7 +34,7 @@ public class BoardController extends HttpServlet {
     // Filter 실행 후 Controller 실행
     
     // 요청 인코딩 + 응답 타입과 인코딩
-    request.setCharacterEncoding("UTF-8");
+    //request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
     
     // 요청 주소 확인
