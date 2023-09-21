@@ -11,13 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class BoardDto {
-
-	private int board_no;
-	private String title;
-	private String content;
-	private String editor;
-	private int hit;
-	private Date lastModified;
-	private Date created;
+public class ArticleDto {
+  private int article_no;
+  private String title;
+  private String content;
+  private String editor;
+  private int hit;
+  private Date lastmodified;
+  private Date created;
 }

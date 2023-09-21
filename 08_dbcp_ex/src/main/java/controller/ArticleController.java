@@ -8,20 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ActionForward;
-import service.BoardService;
-import service.BoardServiceImpl;
+import service.ArticleService;
+import service.ArticleServiceImpl;
 
 /**
- * Servlet implementation class BoardController
+ * Servlet implementation class ArticleController
  */
 @WebServlet("*.do")
-public class BoardController extends HttpServlet {
+public class ArticleController extends HttpServlet {
   private static final long serialVersionUID = 1L;
-       
+  
+  private ArticleService articleService = new ArticleServiceImpl();
+  
   /**
    * @see HttpServlet#HttpServlet()
    */
-  public BoardController() {
+  public ArticleController() {
     super();
     // TODO Auto-generated constructor stub
   }
@@ -31,51 +33,39 @@ public class BoardController extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    // BoardFilter 실행 후 Controller 실행
-    
-    // 요청 인코딩(BoardFilter가 수행함) + 응답 타입과 인코딩
-    // request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
     
-    // 요청 주소 확인
     String requestURI = request.getRequestURI();
     String contextPath = request.getContextPath();
     String urlMapping = requestURI.substring(contextPath.length());
     
-    // 어디로 어떻게 이동할 것인지 알고 있는 ActionForward 객체
     ActionForward af = null;
     
-    // BoardService 객체 생성
-    BoardService boardService = new BoardServiceImpl();
-
-    // 요청에 따른 처리
     switch(urlMapping) {
-    // 단순 이동 (forward 처리)
-    case "/board/writeArticle.do":
-      af = new ActionForward("/board/write.jsp", false);
-      break;
     case "/index.do":
       af = new ActionForward("/index.jsp", false);
       break;
-    // 서비스 처리
-    case "/board/addArticle.do":
-      af = boardService.register(request);
+    case "/writeArticle.do":
+      af = new ActionForward("/article/write.jsp", false);
       break;
-    case "/board/getArticleList.do":
-      af = boardService.getBoardList(request);
+    case "/addArticle.do":
+      af = articleService.add(request);
       break;
-    case "/board/getArticleDetail.do":
-      af = boardService.getBoardByNo(request);
+    case "/getArticleList.do":
+      af = articleService.list(request);
       break;
-    case "/board/editArticle.do":
-      af = boardService.edit(request);
+    case "/getArticleDetail.do":
+      af = articleService.detail(request);
       break;
-    case "/board/modifyArticle.do":
-      af = boardService.modify(request);
+    case "/editArticle.do":
+      af = articleService.edit(request);
       break;
-    case "/board/deleteArticle.do":
-      af = boardService.delete(request);
+    case "/modifyArticle.do":
+      af = articleService.modify(request);
       break;
+    case "/plusHit.do":
+    	af=articleService.PlusHit(request);
+    	break;
     }
     
     // 이동

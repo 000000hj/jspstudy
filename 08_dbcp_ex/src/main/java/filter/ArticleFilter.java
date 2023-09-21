@@ -17,15 +17,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class BoardFilter
+ * Servlet Filter implementation class ArticleFilter
  */
 @WebFilter("*.do")
-public class BoardFilter extends HttpFilter implements Filter {
+public class ArticleFilter extends HttpFilter implements Filter {
        
   /**
    * @see HttpFilter#HttpFilter()
    */
-  public BoardFilter() {
+  public ArticleFilter() {
     super();
     // TODO Auto-generated constructor stub
   }
@@ -69,7 +69,7 @@ public class BoardFilter extends HttpFilter implements Filter {
    */
   public void init(FilterConfig fConfig) throws ServletException {
     // TODO Auto-generated method stub
-    System.out.println("::::: BoardFilter 시작 :::::");
+    System.out.println("::::: ArticleFilter 시작 :::::");
   }
 
 }

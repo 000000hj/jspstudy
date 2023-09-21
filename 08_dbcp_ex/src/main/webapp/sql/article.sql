@@ -29,3 +29,12 @@ CREATE SEQUENCE ARTICLE_SEQ NOCACHE;
 2. 목록 보기에서 기사를 선택한 뒤 삭제한다.
    delete from article_t where article_no in(1, 2, 3);
 */
+/*
+ * 목록
+ *     /plusHit.do
+ *     redirect:/getArticleDetail.do
+ * 
+ * 편집
+ *     /modifyArticle.do
+ *        redirect : /getArticleDetail.do
+ */
