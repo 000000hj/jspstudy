@@ -41,7 +41,7 @@ function fnWrite() {
 <input type="text" placeholder="begin" class="input_avr" name="begin" size="8">
 <span> ~ </span>
 <input type="text" placeholder="end" class="input_avr" name="end" size="8">
-<button type="button" id="btn_inquiry">조희</button>
+<button type="button" id="btn_inquiry">조회</button>
 <button type="button" id="btn_inquiry_all">전체조회</button>
 </form>
 </div>
