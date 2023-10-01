@@ -38,7 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/HelloServlet")
 
 public class HelloServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
        
   /**
    * 1. 생성자
@@ -53,78 +53,78 @@ public class HelloServlet extends HttpServlet {
       System.out.println("1. HelloServlet() 생성자 호출");
   }
 
-	/**
-	 * 2. init()
-	 *   1) 서블릿 환경 설정을 담당하는 메소드이다.
-	 *   2) init() 메소드 호출 뒤 자동으로 service() 메소드가 호출된다.
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-	  System.out.println("2. init() 메소드 호출");
-	}
+  /**
+   * 2. init()
+   *   1) 서블릿 환경 설정을 담당하는 메소드이다.
+   *   2) init() 메소드 호출 뒤 자동으로 service() 메소드가 호출된다.
+   * @see Servlet#init(ServletConfig)
+   */
+  public void init(ServletConfig config) throws ServletException {
+    // TODO Auto-generated method stub
+    System.out.println("2. init() 메소드 호출");
+  }
 
-	/**
-	 * 3. service()
-	 *   1) 클라이언트가 요청할 때 자동으로 호출되는 메소드이다.
-	 *   2) 클라이언트로부터 요청을 받을 수 있고, 클라이언트에게 응답할 수 있다.
-	 *   3) 요청을 처리하는 클래스 : javax.servlet.http.HttpServletRequest
-	 *   4) 응답을 처리하는 클래스 : javax.servlet.http.HttpServletResponse
-	 *   5) service() 메소드가 없으면 doGet() 또는 doPost()와 같은 메소드가 요청 메소드에 따라서 자동으로 호출된다.
-	 *   
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	  System.out.println("3. service() 메소드 호출");
-	  // 요청 메소드에 따라서 doGet() 또는 doPost() 메소드 호출하기
-	  switch(request.getMethod()) {
-	  case "GET": doGet(request, response); break;
-	  case "POST": doPost(request, response); break;
-	  }
-	}
+  /**
+   * 3. service()
+   *   1) 클라이언트가 요청할 때 자동으로 호출되는 메소드이다.
+   *   2) 클라이언트로부터 요청을 받을 수 있고, 클라이언트에게 응답할 수 있다.
+   *   3) 요청을 처리하는 클래스 : javax.servlet.http.HttpServletRequest
+   *   4) 응답을 처리하는 클래스 : javax.servlet.http.HttpServletResponse
+   *   5) service() 메소드가 없으면 doGet() 또는 doPost()와 같은 메소드가 요청 메소드에 따라서 자동으로 호출된다.
+   *   
+   * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+    System.out.println("3. service() 메소드 호출");
+    // 요청 메소드에 따라서 doGet() 또는 doPost() 메소드 호출하기
+    switch(request.getMethod()) {
+    case "GET": doGet(request, response); break;
+    case "POST": doPost(request, response); break;
+    }
+  }
 
-	/**
-	 * 4. doGet()
-	 *   1) GET 방식의 요청을 처리하는 메소드이다.
-	 *   2) 기본적으로 POST 방식의 요청도 처리하도록 구성되어 있다.
-	 *   3) GET 방식으로 요청하는 방법
-	 *     (1) <a href="/servlet/HelloServlet">
-	 *     (2) <form method="get" action="/servlet/HelloServlet">
-	 *     (3) location.href = '/servlet/HelloServlet'
-	 *     (4) window.open('/servlet/HelloServlet', '', '')
-	 *     (5) $.ajax({
-	 *           type: 'get',
-	 *           url: '/servlet/HelloServlet',
-	 *           ...
-	 *         })
-	 *   
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	  System.out.println("4. doGet() 메소드 호출");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+  /**
+   * 4. doGet()
+   *   1) GET 방식의 요청을 처리하는 메소드이다.
+   *   2) 기본적으로 POST 방식의 요청도 처리하도록 구성되어 있다.
+   *   3) GET 방식으로 요청하는 방법
+   *     (1) <a href="/servlet/HelloServlet">
+   *     (2) <form method="get" action="/servlet/HelloServlet">
+   *     (3) location.href = '/servlet/HelloServlet'
+   *     (4) window.open('/servlet/HelloServlet', '', '')
+   *     (5) $.ajax({
+   *           type: 'get',
+   *           url: '/servlet/HelloServlet',
+   *           ...
+   *         })
+   *   
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+    System.out.println("4. doGet() 메소드 호출");
+    response.getWriter().append("Served at: ").append(request.getContextPath());
+  }
 
-	/**
-	 * 5. doPost()
-	 *   1) POST 방식의 요청을 처리하는 메소드이다.
-	 *   2) 기본적으로 POST 방식의 요청이 오더라도 doGet()으로 처리를 이관한다.
-	 *   3) POST 방식으로 요청하는 방법
+  /**
+   * 5. doPost()
+   *   1) POST 방식의 요청을 처리하는 메소드이다.
+   *   2) 기본적으로 POST 방식의 요청이 오더라도 doGet()으로 처리를 이관한다.
+   *   3) POST 방식으로 요청하는 방법
    *     (1) <form method="post" action="/servlet/HelloServlet">
    *     (2) $.ajax({
    *           type: 'post',
    *           url: '/servlet/HelloServlet',
    *           ...
    *         })
-	 *   
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	  System.out.println("4. doPost() 메소드 호출");
-		doGet(request, response);
-	}
+   *   
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+    System.out.println("4. doPost() 메소드 호출");
+    doGet(request, response);
+  }
   
 }

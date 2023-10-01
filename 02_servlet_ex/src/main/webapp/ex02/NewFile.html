@@ -1,35 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  
-  <style>
-    span{
-      font-weight: 600;
-    }
-  </style>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<title>Insert title here</title>
 </head>
-<body>
-  <div id="mainWrap">
-    
-    <input type="button" value="새로고침" id="btn_reset">
-    <span class="calc"></span>
-    <input name="answer" id="answer" type="text" size="4" autocomplete="off">
-    <input id="btn_calc" type="button" value="계산"></input>
-  </div>
-  
-  <script>
-    
-    
 
+<script>
+
+$(function(){
+  fnNum();
+  fnRefresh();
+})
+
+
+//랜덤값을 생성하는 메소드
+function fnRandom(min,max){
+  return Math.floor(Math.random()*max)+min;
+}
+
+
+function fnNum(){
+  var num1=fnRandom(1,9);
+  var num2=fnRandom(1,9);
+$('#span_num1').text(num1);
+$('#span_num2').text(num2);
+$('#num1').val(num1);
+$('#num2').val(num2);
+}
+
+//새로고침 버튼
+function fnRefresh(){
+  
+  $('#btn_refresh').click(function(){
     
-  </script>
-  
-  
-  
+    fnNum();
+  })
+}
+
+
+
+
+</script>
+<body>
+
+<form action="/servlet_ex/gugudan" method="post">
+
+<button type="button" id="btn_refresh">새로고침</button>
+<div>
+<label for="answer">
+<span id="span_num1" ></span>
+<span>X</span>
+<span id="span_num2"></span>
+</label>
+<input type="text" id="answer" name="answer" size="5">
+<input type="hidden" name="num1" id="num1" >
+<input type="hidden" name="num2" id="num2" >
+<button id="btn_submit">계산</button>
+</div>
+
+</form>
 
 </body>
 </html>

@@ -12,37 +12,37 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/redirect2")
 public class Redirect2 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Redirect2() {
-        super();
-    }
+  /**
+   * @see HttpServlet#HttpServlet()
+   */
+  public Redirect2() {
+    super();
+    // TODO Auto-generated constructor stub
+  }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    // 1. 요청 인코딩
+    request.setCharacterEncoding("UTF-8");
+    
+    // 2. 요청 파라미터
+    String name = request.getParameter("name");
+    
+    System.out.println("redirect: " + name);
+    
+  }
 
-	
-	//1. 요청 인코딩
-		request.setCharacterEncoding("UTF-8");
-	
-	//2. 요청 파라미터
-		String name=request.getParameter("name");
-		
-		
-		System.out.println("redirect :"+ name);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+    doGet(request, response);
+  }
 
 }
